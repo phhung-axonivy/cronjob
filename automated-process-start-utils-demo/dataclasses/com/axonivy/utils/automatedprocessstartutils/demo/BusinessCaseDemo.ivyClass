@@ -1,0 +1,5 @@
+BusinessCaseDemo #class
+ch.ivyteam.ivy.business.data.store.context.BusinessCaseData #classAnnotation
+com.axonivy.utils.automatedprocessstartutils.demo #namespace
+startTime DateTime #field
+startTime PERSISTENT #fieldModifier

@@ -8,6 +8,6 @@
 Variables:
   # Cron expression define the time to start the cron job: Demo.
   # Refer to http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html
-  # An expression to create a trigger that simply fires every second
+  # An expression to create a trigger that simply fires every 5 seconds
   # Note: Please restart the Ivy Server after changing this variable.
-  demoStartCronPattern: 0/1 * * * * ?
+  demoStartCronPattern: 0/5 * * * * ?
