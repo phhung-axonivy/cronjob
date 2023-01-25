@@ -1,0 +1,45 @@
+{
+  "format" : "10.0.0",
+  "id" : "185E888E5E4EFBE2",
+  "config" : {
+    "data" : "com.axonivy.utils.automatedprocessstartutils.automated.process.start.utils.demo.DemoData"
+  },
+  "elements" : [ {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 160 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "ProgramStart",
+      "name" : "Start Cron Job",
+      "config" : {
+        "beanConfig" : "demoStartCronPattern",
+        "outerBean" : "com.axonivy.utils.automatedprocessstartutils.CronByGlobalVariableTriggerStartEventBean"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 160 },
+        "labelOffset" : { "x" : 13, "y" : 33 }
+      },
+      "connect" : { "id" : "f5", "to" : "f4" }
+    }, {
+      "id" : "f4",
+      "type" : "Script",
+      "name" : "Log cron job",
+      "config" : {
+        "output" : {
+          "code" : [
+            "DateTime startTime = new DateTime();",
+            "ivy.datacache.getSessionCache().setEntry(\"com.axonivy.utils.automatedprocessstartutils\", ",
+            "  \"demoStartTime\", startTime);",
+            "ivy.log.info(\"Cron job ist started at: {0}.\", startTime);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 216, "y" : 160 }
+      },
+      "connect" : { "id" : "f6", "to" : "f1" }
+    } ]
+}
