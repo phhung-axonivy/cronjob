@@ -9,14 +9,17 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
+import com.axonivy.ivy.webtest.IvyWebTest;
+
+import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.IvyTest;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 
 /**
  * This UnitTest is testing the demo process.
  */
-@IvyTest
-public class CronByGlobalVariableTriggerStartEventBeanIvyTest {
+@IvyWebTest
+public class CronByGlobalVariableTriggerStartEventBeanIT {
 
 	@Test
 	public void testCronJongStarted() throws Exception {
