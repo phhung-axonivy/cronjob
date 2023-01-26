@@ -22,7 +22,7 @@
         "at" : { "x" : 96, "y" : 160 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       },
-      "connect" : { "id" : "f2", "to" : "f0" }
+      "connect" : { "id" : "f7", "to" : "f4" }
     }, {
       "id" : "f4",
       "type" : "Script",
@@ -30,40 +30,22 @@
       "config" : {
         "output" : {
           "code" : [
-            "import com.axonivy.utils.automatedprocessstartutils.demo.BusinessCaseDemo;",
+            "import java.nio.file.Paths;",
+            "import java.nio.file.Files;",
             "",
             "",
             "DateTime startTime = new DateTime();",
             "",
-            "BusinessCaseDemo bCaseDemo = ivy.repo.get(BusinessCaseDemo.class) as BusinessCaseDemo;",
-            "bCaseDemo.startTime = startTime;",
-            "try {",
-            "  ivy.repo.save(bCaseDemo);",
-            "}",
-            "catch(Exception e) {",
-            "  ivy.log.error(\"Error when saving BusinessCaseDemo.\", e);",
-            "}",
+            "Files.write(Paths.get(System.getProperty(\"java.io.tmpdir\"), \"Demo.log\"), ",
+            "  [startTime.toString()]);",
+            "",
             "ivy.log.info(\"Cron job ist started at: {0}.\", startTime);"
           ]
         }
       },
       "visual" : {
-        "at" : { "x" : 320, "y" : 160 }
+        "at" : { "x" : 280, "y" : 160 }
       },
       "connect" : { "id" : "f6", "to" : "f1" }
-    }, {
-      "id" : "f0",
-      "type" : "TaskSwitchEvent",
-      "config" : {
-        "task" : {
-          "responsible" : {
-            "role" : "SYSTEM"
-          }
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 192, "y" : 160 }
-      },
-      "connect" : { "id" : "f5", "to" : "f4" }
     } ]
 }
