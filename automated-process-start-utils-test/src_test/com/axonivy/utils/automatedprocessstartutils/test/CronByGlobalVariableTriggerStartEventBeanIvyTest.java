@@ -23,11 +23,11 @@ public class CronByGlobalVariableTriggerStartEventBeanIvyTest {
 		TimeUnit.SECONDS.sleep(5);
 		
 		Path demoLog = Paths.get(System.getProperty("java.io.tmpdir"), "Demo.log");
-		assertThat(Files.exists(demoLog)).as("{0} does not exist", demoLog).isTrue();
-		assertThat(Files.isReadable(demoLog)).as("{0} is not readable", demoLog).isTrue();
+		assertThat(Files.exists(demoLog)).as("%s does not exist", demoLog).isTrue();
+		assertThat(Files.isReadable(demoLog)).as("%s is not readable", demoLog).isTrue();
 		
 		String demoStartTime = Files.readString(demoLog).trim();
-		assertThat(demoStartTime).as("{0} is empty", demoLog).isNotBlank();
+		assertThat(demoStartTime).as("%s is empty", demoLog).isNotBlank();
 		
 		DateTime startTime = new DateTime(demoStartTime);
 		assertThat(startTime).as("Cron job did not started").isNotNull();
