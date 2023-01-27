@@ -14,16 +14,10 @@
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>com.axonivy.ivy.test</groupId>
-      <artifactId>unit-tester</artifactId>
+      <groupId>com.axonivy.ivy.webtest</groupId>
+      <artifactId>web-tester</artifactId>
       <version>10.0.0</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>com.axonivy.ivy.webtest</groupId>
-    	<artifactId>web-tester</artifactId>
-    	<version>10.0.0</version>
-    	<scope>test</scope>
     </dependency>
   </dependencies>
   <build>

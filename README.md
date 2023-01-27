@@ -1,7 +1,7 @@
-# MY-PRODUCT-NAME
+# Automated Process Start Utils
 
 [![CI Build](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml)
 
-"YOUR SHORT DESCRIPTION GOES HERE"
+**Automated Process Start Utils** is a job-firing schedule that recurs based on calendar-like notions.
 
-Read our [documentation](MY-PRODUCT-NAME-product/README.md).
+Read our [documentation](automated-process-start-utils-product/README.md).

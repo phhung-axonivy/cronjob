@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 
-import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
-import ch.ivyteam.ivy.environment.IvyTest;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 
 /**
