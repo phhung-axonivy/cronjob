@@ -1,0 +1,69 @@
+{
+  "installers": [
+    {
+      "id": "maven-import",
+      "data": {
+        "projects": [
+          {
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob-demo",
+            "version": "${version}",
+            "type": "iar"
+          }
+        ],
+        "repositories": [
+          {
+            "id": "maven.axonivy.com",
+            "url": "https://maven.axonivy.com",
+            "snapshots": {
+              "enabled": "true"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "maven-dependency",
+      "data": {
+        "dependencies": [
+          {
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob",
+            "version": "${version}",
+            "type": "iar"
+          }
+        ],
+        "repositories": [
+          {
+            "id": "maven.axonivy.com",
+            "url": "https://maven.axonivy.com",
+            "snapshots": {
+              "enabled": "true"
+            }
+          }
+        ]
+      }
+    }, 
+    {
+      "id": "maven-dropins",
+      "data": {
+        "dependencies": [
+          {
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob",
+            "version": "${version}"
+          }
+        ],
+        "repositories": [
+          {
+            "id": "maven.axonivy.com",
+            "url": "https://maven.axonivy.com",
+            "snapshots": {
+              "enabled": "true"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
