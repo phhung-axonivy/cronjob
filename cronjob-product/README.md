@@ -14,7 +14,7 @@ In this demo, the CronByGlobalVariableTriggerStartEventBean is defined as the Ja
 
 ![Program Start Element screenshot](ProgramStartElement.png "Program Start Element screenshot")
 
-This bean gets a cron expression via the globale variable defined as Cron expression and it will schedule by using the expression.
+This bean gets a cron expression via the variable defined as Cron expression and it will schedule by using the expression.
 
 ![custom editor UI screenshot](customEditorUI.png "custom editor UI screenshot")
 
