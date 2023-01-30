@@ -45,9 +45,7 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 	private static final Object SYN_OBJECT = new Object();
 	private static Map<String, Long> startedJobs = Collections.synchronizedMap(new HashMap<String, Long>());
 
-	/**
-	 * Default constructor
-	 */
+	
 	public CronByGlobalVariableTriggerStartEventBean() {
 		super("CronTrigger", "Description of CronTrigger");
 	}
@@ -173,23 +171,23 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 	 */
 	public static class Editor extends UiEditorExtension {
 
-		private IUiFieldEditor globalVariable;
+		private IUiFieldEditor variable;
 
 		
 		@Override
 		public void initUiFields(ExtensionUiBuilder ui) {
-			ui.label("Global Variable name").create();
-			globalVariable = ui.textField().create();
+			ui.label("Cron expression defined by the Variable name located in <project>/config/variables.yaml file").create();
+			variable = ui.textField().create();
 		}
 
 		@Override
 		public String getConfiguration() {
-			return globalVariable.getText();
+			return variable.getText();
 		}
 
 		@Override
 		public void setConfiguration(String configString) {
-			globalVariable.setText(configString);
+			variable.setText(configString);
 		}
 	}
 }
