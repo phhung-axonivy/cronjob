@@ -5,8 +5,8 @@
       "data": {
         "projects": [
           {
-            "groupId": "MY-GROUP-ID",
-            "artifactId": "MY-PRODUCT-NAME-demo",
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob-demo",
             "version": "${version}",
             "type": "iar"
           }
@@ -27,8 +27,8 @@
       "data": {
         "dependencies": [
           {
-            "groupId": "MY-GROUP-ID",
-            "artifactId": "MY-PRODUCT-NAME",
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob",
             "version": "${version}",
             "type": "iar"
           }
@@ -49,8 +49,8 @@
       "data": {
         "dependencies": [
           {
-            "groupId": "MY-GROUP-ID",
-            "artifactId": "MY-PRODUCT-NAME",
+            "groupId": "com.axonivy.utils.cronjob",
+            "artifactId": "cronjob",
             "version": "${version}"
           }
         ],

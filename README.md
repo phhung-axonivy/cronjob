@@ -1,7 +1,7 @@
-# MY-PRODUCT-NAME
+# Cron Job
 
-[![CI Build](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml)
+[![CI Build](https://github.com/axonivy-market/cronjob/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/cronjob/actions/workflows/ci.yml)
 
-"YOUR SHORT DESCRIPTION GOES HERE"
+**Cron Job** is a job-firing schedule that recurs based on calendar-like notions.
 
-Read our [documentation](MY-PRODUCT-NAME-product/README.md).
+Read our [documentation](cronjob-product/README.md).
