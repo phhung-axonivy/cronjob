@@ -22,6 +22,7 @@ import org.quartz.impl.StdSchedulerFactory;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.process.eventstart.AbstractProcessStartEventBean;
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanRuntime;
+import ch.ivyteam.ivy.process.eventstart.beans.TimerBean;
 import ch.ivyteam.ivy.process.extension.ui.ExtensionUiBuilder;
 import ch.ivyteam.ivy.process.extension.ui.IUiFieldEditor;
 import ch.ivyteam.ivy.process.extension.ui.UiEditorExtension;
@@ -35,7 +36,9 @@ import ch.ivyteam.log.Logger;
  * Configuration string and will schedule by using the expression
  *
  * The Quartz framework is used as underlying scheduler framework.
+ * @deprecated use {@link TimerBean} instead
  */
+@Deprecated(since="11.2")
 public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessStartEventBean implements Job {
 	private Scheduler scheduler = null;
 	private JobDetail job = null;
