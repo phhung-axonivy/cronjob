@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.3.0/process.json",
   "id" : "185E888E5E4EFBE2",
   "config" : {
     "data" : "com.axonivy.utils.cronjob.demo.DemoData"
@@ -15,14 +15,19 @@
       "type" : "ProgramStart",
       "name" : "Start Cron Job Utils",
       "config" : {
-        "beanConfig" : "demoStartCronPattern",
-        "outerBean" : "com.axonivy.utils.cronjob.CronByGlobalVariableTriggerStartEventBean"
+        "javaClass" : "com.axonivy.utils.cronjob.CronByGlobalVariableTriggerStartEventBean",
+        "userConfig" : {
+          "converted" : "demoStartCronPattern"
+        },
+        "link" : "eventLink.ivp"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 160 },
         "labelOffset" : { "x" : 13, "y" : 33 }
       },
-      "connect" : { "id" : "f7", "to" : "f4" }
+      "connect" : [
+        { "id" : "f7", "to" : "f4" }
+      ]
     }, {
       "id" : "f4",
       "type" : "Script",
@@ -46,6 +51,8 @@
       "visual" : {
         "at" : { "x" : 280, "y" : 160 }
       },
-      "connect" : { "id" : "f6", "to" : "f1" }
+      "connect" : [
+        { "id" : "f6", "to" : "f1" }
+      ]
     } ]
 }
