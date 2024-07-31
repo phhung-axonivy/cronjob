@@ -10,6 +10,7 @@
   </organization>
   <properties>
     <quartz.version>2.3.2</quartz.version>
+    <project.build.plugin.version>11.3.0</project.build.plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -38,7 +39,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>11.3.0</version>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
