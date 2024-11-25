@@ -1,12 +1,10 @@
 # Cron Job
 
-**Cron Job** is a job-firing schedule that recurs based on calendar-like notions.
+A Cron Job is a recurring schedule for executing tasks. With a Cron Job, you can set schedules like "every Friday at 12:00 PM," "every weekday at 9:30 AM," or even "every 5 minutes between 9:00 AM and 10:00 AM on every Monday, Wednesday, and Friday in January."
 
-The [Quartz framework](http://www.quartz-scheduler.org/) is used as underlying scheduler framework.
+The [Quartz framework](http://www.quartz-scheduler.org/) is used as the underlying scheduler framework.
 
-With Cron Job, you can specify firing-schedules such as “every Friday at noon”, or “every weekday and 9:30 am”, or even “every 5 minutes between 9:00 am and 10:00 am on every Monday, Wednesday and Friday during January”.
-
-For more details about Cron Expressions please refer to [Lesson 6: CronTrigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html)
+You can find more details about Cron Expressions here: [Lesson 6: CronTrigger](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/tutorial-lesson-06.html)
 
 ## Demo
 
