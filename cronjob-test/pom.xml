@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.utils.cronjob</groupId>
   <artifactId>cronjob-test</artifactId>
   <version>11.3.2-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
   <properties>
-    <project.build.plugin.version>11.3.0</project.build.plugin.version>
     <tester.version>11.3.0</tester.version>
+    <project.build.plugin.version>11.3.0</project.build.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
     <dependency>
@@ -23,6 +25,15 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>sonatype</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots</url>
+    </repository>
+  </repositories>
   <pluginRepositories>
     <pluginRepository>
       <snapshots>
@@ -32,15 +43,6 @@
       <url>https://central.sonatype.com/repository/maven-snapshots</url>
     </pluginRepository>
   </pluginRepositories>
-  <repositories>
-    <repository>
-      <id>sonatype</id>
-      <url>https://central.sonatype.com/repository/maven-snapshots</url>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
     <plugins>
