@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.utils.cronjob</groupId>
   <artifactId>cronjob-test</artifactId>
-  <version>11.3.2-SNAPSHOT</version>
+  <version>12.0.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
   <properties>
-    <tester.version>11.3.0</tester.version>
-    <project.build.plugin.version>11.3.0</project.build.plugin.version>
+    <tester.version>12.0.1</tester.version>
+    <project.build.plugin.version>12.0.0</project.build.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
