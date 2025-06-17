@@ -44,7 +44,7 @@
             "Files.write(Paths.get(System.getProperty(\"java.io.tmpdir\"), \"Demo.log\"), ",
             "  [startTime.toString()]);",
             "",
-            "ivy.log.info(\"Cron Job ist started at: {0}.\", startTime);"
+            "ivy.log.info(\"Cron Job is started at: {0}.\", startTime);"
           ]
         }
       },

@@ -23,6 +23,7 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.process.eventstart.AbstractProcessStartEventBean;
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanRuntime;
 import ch.ivyteam.ivy.process.eventstart.beans.TimerBean;
+import ch.ivyteam.ivy.process.extension.ProgramConfig;
 import ch.ivyteam.ivy.process.extension.ui.ExtensionUiBuilder;
 import ch.ivyteam.ivy.process.extension.ui.IUiFieldEditor;
 import ch.ivyteam.ivy.process.extension.ui.UiEditorExtension;
@@ -54,13 +55,13 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 	}
 
 	@Override
-	public void initialize(IProcessStartEventBeanRuntime eventRuntime, String configuration) {
-		super.initialize(eventRuntime, configuration);
+	public void initialize(IProcessStartEventBeanRuntime eventRuntime, ProgramConfig programConfig) {
+		super.initialize(eventRuntime, programConfig);
 		// Disable Ivy polling
-		eventRuntime.setPollTimeInterval(0);
+		eventRuntime.poll().disable();
 
 		try {
-			Variable var = Variables.of(eventRuntime.getProcessModelVersion().getApplication()).variable(configuration);
+			Variable var = Variables.of(eventRuntime.getProcessModelVersion().getApplication()).variable(programConfig.get("converted"));
 			if (var != null) {
 				String pattern = var.value();
 				SchedulerFactory sf = new StdSchedulerFactory();

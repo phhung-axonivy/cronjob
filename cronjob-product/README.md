@@ -30,6 +30,6 @@ No special setup is needed for this demo. Only start the Engine and watch out th
 
 ```
 
-Cron Job ist started at: 2023-01-27 10:43:20.
+Cron Job is started at: 2023-01-27 10:43:20.
 
 ```
