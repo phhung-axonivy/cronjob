@@ -22,7 +22,6 @@ import org.quartz.impl.StdSchedulerFactory;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.process.eventstart.AbstractProcessStartEventBean;
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanRuntime;
-import ch.ivyteam.ivy.process.eventstart.beans.TimerBean;
 import ch.ivyteam.ivy.process.extension.ProgramConfig;
 import ch.ivyteam.ivy.process.extension.ui.ExtensionUiBuilder;
 import ch.ivyteam.ivy.process.extension.ui.IUiFieldEditor;
@@ -37,15 +36,14 @@ import ch.ivyteam.log.Logger;
  * Configuration string and will schedule by using the expression
  *
  * The Quartz framework is used as underlying scheduler framework.
- * @deprecated use {@link TimerBean} instead
  */
-@Deprecated(since="11.2")
 public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessStartEventBean implements Job {
 	private Scheduler scheduler = null;
 	private JobDetail job = null;
 	private CronTrigger trigger = null;
 	private String triggerIdentifier;
 	private static final String RUNTIME_KEY = "eventRuntime";
+	private static final String CONFIGURATION_PROPERTY = "converted";
 	private static final Object SYN_OBJECT = new Object();
 	private static Map<String, Long> startedJobs = Collections.synchronizedMap(new HashMap<String, Long>());
 
@@ -61,7 +59,7 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 		eventRuntime.poll().disable();
 
 		try {
-			Variable var = Variables.of(eventRuntime.getProcessModelVersion().getApplication()).variable(programConfig.get("converted"));
+			Variable var = Variables.of(eventRuntime.getProcessModelVersion().getApplication()).variable(programConfig.get(CONFIGURATION_PROPERTY));
 			if (var != null) {
 				String pattern = var.value();
 				SchedulerFactory sf = new StdSchedulerFactory();
@@ -144,7 +142,7 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 							public Void call() throws Exception {
 								String firingReason = "Cron Trigger started " + triggerIdentifier;
 								Map<String, Object> parameters = new HashMap<>();
-								eventRuntime.fireProcessStartEventRequest(null, firingReason, parameters);
+								eventRuntime.processStarter().withReason(firingReason).withParameters(parameters).start();
 								return null;
 							}
 						});
@@ -181,7 +179,7 @@ public class CronByGlobalVariableTriggerStartEventBean extends AbstractProcessSt
 		@Override
 		public void initUiFields(ExtensionUiBuilder ui) {
 			ui.label("Cron expression defined by the Variable name located in <project>/config/variables.yaml file").create();
-			variable = ui.textField().create();
+			variable = ui.scriptField(CONFIGURATION_PROPERTY).create();
 		}
 
 		@Override
