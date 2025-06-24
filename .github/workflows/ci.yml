@@ -9,4 +9,81 @@ on:
 
 jobs:
   build:
-    uses: axonivy-market/github-workflows/.github/workflows/ci.yml@bugfix/MARP-2279-Enhance-dorny-test-for-fork-repo
+    runs-on: ubuntu-latest
+
+    permissions:
+      checks: write
+      contents: write
+      actions: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: 21
+        distribution: temurin
+
+    - name: Setup Maven
+      uses: stCarolas/setup-maven@v5
+      with:
+        maven-version: 3.9.8
+
+    - name: Build with Maven
+      run: mvn clean verify --batch-mode --fail-at-end
+
+    - name: Check if test results exist
+      id: check_test_files
+      run: |
+        if [[ "${{ hashFiles('**/target/*-reports/*.xml') }}" != "" ]]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Remove test summary files
+      if: steps.check_test_files.outputs.exists == 'true'
+      run: rm -f **/target/*-reports/*-summary.xml
+
+    - name: Publish Unit Test Results
+      id: test_report
+      uses: dorny/test-reporter@v1.9.1
+      if: steps.check_test_files.outputs.exists == 'true'
+      with:
+        name: JUnit Test Results
+        reporter: java-junit
+        path: '**/target/*-reports/*.xml'
+
+    - name: Export test results to json file
+      if: steps.check_test_files.outputs.exists == 'true'
+      run: |
+        response=$(curl ${{ steps.test_report.outputs.url }})
+        echo $response > test_report.json
+
+    - name: Archive test json file
+      uses: actions/upload-artifact@v4
+      if: steps.check_test_files.outputs.exists == 'true'
+      with:
+        name: export-test-json-file
+        retention-days: 5
+        path: 'test_report.json'
+
+    - name: Archive build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: |
+          */target/*.iar
+          */target/*-[0-9]*.jar
+          *product/target/*.zip
+
+    - name: Archive test reports
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: test-reports
+        retention-days: 5
+        path: |
+          */target/testEngineOut.log
+          */target/selenide/*
+          */target/ivyEngine/deploy/*/*.deploymentLog
