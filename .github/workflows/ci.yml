@@ -45,7 +45,10 @@ jobs:
 
     - name: Remove test summary files
       if: github.event.pull_request.head.repo.full_name != github.repository && steps.check_test_files.outputs.exists == 'true'
-      run: rm -f **/target/*-reports/*-summary.xml
+      run: |
+        echo "PR: ${{ github.event.pull_request.head.repo.full_name }}"
+        echo "Repo: ${{ github.repository }}"
+        rm -f **/target/*-reports/*-summary.xml
 
     - name: Publish Unit Test Results
       id: test_report
