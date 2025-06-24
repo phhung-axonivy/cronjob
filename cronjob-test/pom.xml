@@ -23,10 +23,6 @@
       <version>${tester.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.axonivy.ivy.api</groupId>
-      <artifactId>ivy-api</artifactId>
-    </dependency>
   </dependencies>
   <repositories>
     <repository>
