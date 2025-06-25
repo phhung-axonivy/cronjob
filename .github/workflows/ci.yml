@@ -10,4 +10,4 @@ on:
 jobs:
   build:
     uses: axonivy-market/github-workflows/.github/workflows/ci.yml@bugfix/MARP-2279-Enhance-dorny-test-for-fork-repo
-    
+
